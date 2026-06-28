@@ -442,3 +442,35 @@ void Assistant::ResetInstances(Player* player, uint8 type)
         }
     }
 }
+
+bool Assistant::HasSavedInstancesGroup(Player* player, uint8 type)
+{
+    Group* group = player->GetGroup();
+    if (!group)
+        return HasSavedInstances(player, type);
+
+    bool found = false;
+    group->DoForAllMembers([this, &found, type](Player* member)
+    {
+        if (member && HasSavedInstances(member, type))
+            found = true;
+    });
+
+    return found;
+}
+
+bool Assistant::CanResetInstancesGroup(Player* player)
+{
+    Group* group = player->GetGroup();
+    if (!group)
+        return CanResetInstances(player);
+
+    bool found = false;
+    group->DoForAllMembers([this, &found](Player* member)
+    {
+        if (member && CanResetInstances(member))
+            found = true;
+    });
+
+    return found;
+}

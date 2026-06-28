@@ -54,7 +54,7 @@ bool Assistant::OnGossipHello(Player* player, Creature* creature)
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PROFESSIONS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_PROFESSIONS);
     }
 
-    if (CanResetInstances(player))
+    if (CanResetInstancesGroup(player))
     {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_INSTANCES, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES);
     }
@@ -450,7 +450,7 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     {
         ClearGossipMenuFor(player);
 
-        if (HasSavedInstances(player, INSTANCE_TYPE_HEROIC) && HeroicInstanceEnabled)
+        if (HasSavedInstancesGroup(player, INSTANCE_TYPE_HEROIC) && HeroicInstanceEnabled)
         {
             if (player->GetGroup())
             {
@@ -462,7 +462,7 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
             }
         }
 
-        if (HasSavedInstances(player, INSTANCE_TYPE_RAID) && RaidInstanceEnabled)
+        if (HasSavedInstancesGroup(player, INSTANCE_TYPE_RAID) && RaidInstanceEnabled)
         {
             if (player->GetGroup())
             {
@@ -480,7 +480,10 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     else if (action == ASSISTANT_GOSSIP_INSTANCES + 1)
     {
         ClearGossipMenuFor(player);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_PLAYER, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 2, GOSSIP_CONTINUE_TRANSACTION, HeroicInstanceCost, false);
+        if (HasSavedInstances(player, INSTANCE_TYPE_HEROIC))
+        {
+            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_PLAYER, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 2, GOSSIP_CONTINUE_TRANSACTION, HeroicInstanceCost, false);
+        }
         AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_GROUP, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 3, GOSSIP_CONTINUE_TRANSACTION, HeroicInstanceCost, false);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }
@@ -509,7 +512,10 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     else if (action == ASSISTANT_GOSSIP_INSTANCES + 4)
     {
         ClearGossipMenuFor(player);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_PLAYER, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 5, GOSSIP_CONTINUE_TRANSACTION, RaidInstanceCost, false);
+        if (HasSavedInstances(player, INSTANCE_TYPE_RAID))
+        {
+            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_PLAYER, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 5, GOSSIP_CONTINUE_TRANSACTION, RaidInstanceCost, false);
+        }
         AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_INSTANCES_GROUP, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_INSTANCES + 6, GOSSIP_CONTINUE_TRANSACTION, RaidInstanceCost, false);
         SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
     }

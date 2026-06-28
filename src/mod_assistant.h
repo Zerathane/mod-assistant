@@ -210,6 +210,9 @@ private:
     bool CanResetInstances(Player* /*player*/);
     bool HasSavedInstances(Player* /*player*/, uint8 /*type*/);
     void ResetInstances(Player* /*player*/, uint8 /*type*/);
+    bool CanResetInstancesGroup(Player* /*player*/);
+    bool HasSavedInstancesGroup(Player* /*player*/, uint8 /*type*/);
+
 };
 
 #endif
