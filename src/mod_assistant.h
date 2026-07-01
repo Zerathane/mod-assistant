@@ -29,9 +29,11 @@ enum
     ASSISTANT_VENDOR_GLYPH           = 9000003,
     ASSISTANT_VENDOR_GEM             = 9000023,
     ASSISTANT_VENDOR_ELIXIR          = 9000030,
-    ASSISTANT_VENDOR_FOOD            = 9000033,
+    ASSISTANT_VENDOR_FOOD_VANILLA    = 9000033,
     ASSISTANT_VENDOR_ENCHANT         = 9000034,
     ASSISTANT_VENDOR_CONTAINER       = 9000045,
+    ASSISTANT_VENDOR_FOOD_TBC        = 9000046,
+    ASSISTANT_VENDOR_FOOD_WOTLK      = 9000047,
 
     PROFESSION_LEVEL_APPRENTICE      = 75,
     PROFESSION_LEVEL_JOURNEYMAN      = 150,
@@ -79,6 +81,9 @@ enum
 #define GOSSIP_ELIXIRS_FLASK "I want some flasks"
 
 #define GOSSIP_FOOD "I want food"
+#define GOSSIP_FOOD_VANILLA "Vanilla food"
+#define GOSSIP_FOOD_TBC "The Burning Crusade food"
+#define GOSSIP_FOOD_WOTLK "Wrath of the Lich King food"
 
 #define GOSSIP_ENCHANTS "I want enchants"
 #define GOSSIP_ENCHANTS_WEAPON "I want weapon enchants"
@@ -155,7 +160,7 @@ private:
     bool GlyphsEnabled;
     bool GemsEnabled;
     bool ElixirsEnabled;
-    bool FoodEnabled;
+    bool FoodEnabled[EXPANSION_WRATH_OF_THE_LICH_KING + 1];
     bool EnchantsEnabled;
     bool ContainersEnabled;
 

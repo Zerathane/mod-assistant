@@ -24,7 +24,7 @@ bool Assistant::OnGossipHello(Player* player, Creature* creature)
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_ELIXIRS, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_ELIXIRS);
     }
 
-    if (FoodEnabled)
+    if (FoodEnabled[EXPANSION_CLASSIC] || FoodEnabled[EXPANSION_THE_BURNING_CRUSADE] || FoodEnabled[EXPANSION_WRATH_OF_THE_LICH_KING])
     {
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_FOOD, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FOOD);
     }
@@ -224,7 +224,37 @@ bool Assistant::OnGossipSelect(Player* player, Creature* creature, uint32 sender
     }
     else if (action == ASSISTANT_GOSSIP_FOOD)
     {
-        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_FOOD);
+        ClearGossipMenuFor(player);
+
+        if (FoodEnabled[EXPANSION_CLASSIC])
+        {
+            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_FOOD_VANILLA, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FOOD + 1);
+        }
+
+        if (FoodEnabled[EXPANSION_THE_BURNING_CRUSADE])
+        {
+            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_FOOD_TBC, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FOOD + 2);
+        }
+
+        if (FoodEnabled[EXPANSION_WRATH_OF_THE_LICH_KING])
+        {
+            AddGossipItemFor(player, GOSSIP_ICON_VENDOR, GOSSIP_FOOD_WOTLK, GOSSIP_SENDER_MAIN, ASSISTANT_GOSSIP_FOOD + 3);
+        }
+
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, GOSSIP_PREVIOUS_PAGE, GOSSIP_SENDER_MAIN, 1);
+        SendGossipMenuFor(player, ASSISTANT_GOSSIP_TEXT, creature->GetGUID());
+    }
+    else if (action == ASSISTANT_GOSSIP_FOOD + 1)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_FOOD_VANILLA);
+    }
+    else if (action == ASSISTANT_GOSSIP_FOOD + 2)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_FOOD_TBC);
+    }
+    else if (action == ASSISTANT_GOSSIP_FOOD + 3)
+    {
+        player->GetSession()->SendListInventory(creature->GetGUID(), ASSISTANT_VENDOR_FOOD_WOTLK);
     }
     else if (action == ASSISTANT_GOSSIP_ENCHANTS)
     {

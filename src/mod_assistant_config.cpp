@@ -7,7 +7,9 @@ void Assistant::OnAfterConfigLoad(bool /*reload*/)
     GlyphsEnabled = sConfigMgr->GetOption<bool>("Assistant.Glyphs.Enabled", 1);
     GemsEnabled = sConfigMgr->GetOption<bool>("Assistant.Gems.Enabled", 1);
     ElixirsEnabled = sConfigMgr->GetOption<bool>("Assistant.Elixirs.Enabled", 1);
-    FoodEnabled = sConfigMgr->GetOption<bool>("Assistant.Food.Enabled", 1);
+    FoodEnabled[EXPANSION_CLASSIC] = sConfigMgr->GetOption<bool>("Assistant.Food.Vanilla.Enabled", 1);
+    FoodEnabled[EXPANSION_THE_BURNING_CRUSADE] = sConfigMgr->GetOption<bool>("Assistant.Food.BurningCrusade.Enabled", 1);
+    FoodEnabled[EXPANSION_WRATH_OF_THE_LICH_KING] = sConfigMgr->GetOption<bool>("Assistant.Food.WrathOfTheLichKing.Enabled", 1);
     EnchantsEnabled = sConfigMgr->GetOption<bool>("Assistant.Enchants.Enabled", 1);
     ContainersEnabled = sConfigMgr->GetOption<bool>("Assistant.Containers.Enabled", 1);
 

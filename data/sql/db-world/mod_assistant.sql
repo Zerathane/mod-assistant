@@ -98,7 +98,7 @@ UPDATE `item_template` SET `BuyPrice`=0, `SellPrice`=0 WHERE `entry` IN (1729, 3
 */
 UPDATE `item_template` SET `maxcount`=0 WHERE `entry`=1729;
 
-DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+45;
+DELETE FROM `npc_vendor` WHERE `entry` BETWEEN @Entry AND @Entry+47;
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 -- Heirloom: Weapon
 (@Entry, 42943), -- Bloodied Arcanite Reaper
@@ -699,35 +699,53 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Entry+32, 46377), -- Flask of Endless Rage
 (@Entry+32, 46378), -- Flask of Pure Mojo
 (@Entry+32, 46379), -- Flask of Stoneblood
--- Food
-(@Entry+33, 34748), -- Mammoth Meal
-(@Entry+33, 34749), -- Shoveltusk Steak
-(@Entry+33, 34750), -- Worm Delight
-(@Entry+33, 34751), -- Roasted Worg
-(@Entry+33, 34752), -- Rhino Dogs
-(@Entry+33, 34754), -- Mega Mammoth Meal
-(@Entry+33, 34755), -- Tender Shoveltusk Steak
-(@Entry+33, 34756), -- Spiced Worm Burger
-(@Entry+33, 34757), -- Very Burnt Worg
-(@Entry+33, 34758), -- Mighty Rhino Dogs
-(@Entry+33, 34762), -- Grilled Sculpin
-(@Entry+33, 34763), -- Smoked Salmon
-(@Entry+33, 34764), -- Poached Nettlefish
-(@Entry+33, 34765), -- Pickled Fangtooth
-(@Entry+33, 34766), -- Poached Northern Sculpin
-(@Entry+33, 34767), -- Firecracker Salmon
-(@Entry+33, 34768), -- Spicy Blue Nettlefish
-(@Entry+33, 34769), -- Imperial Manta Steak
-(@Entry+33, 42942), -- Baked Manta Ray
-(@Entry+33, 42993), -- Spicy Fried Herring
-(@Entry+33, 42994), -- Rhinolicious Wormsteak
-(@Entry+33, 42995), -- Hearty Rhino
-(@Entry+33, 42996), -- Snapper Extreme
-(@Entry+33, 42998), -- Cuttlesteak
-(@Entry+33, 42999), -- Blackened Dragonfin
-(@Entry+33, 43000), -- Dragonfin Filet
-(@Entry+33, 43268), -- Dalaran Clam Chowder
-(@Entry+33, 44953), -- Worg Tartare
+-- Food: Vanilla
+(@Entry+33, 13928), -- Grilled Squid (+10 Agility)
+(@Entry+33, 20452), -- Smoked Desert Dumplings (+20 Strength)
+(@Entry+33, 13931), -- Nightfin Soup (+8 Mana per 5 sec)
+(@Entry+33, 18254), -- Runn Tum Tuber Surprise (+10 Intellect)
+(@Entry+33, 21023), -- Dirge's Kickin' Chimaerok Chops (+25 Stamina)
+-- Food: The Burning Crusade
+(@Entry+46, 33052), -- Fisherman's Feast (+30 Stamina, +20 Spirit)
+(@Entry+46, 27667), -- Spicy Crawdad (+30 Stamina, +20 Spirit)
+(@Entry+46, 27660), -- Talbuk Steak (+20 Stamina, +20 Spirit)
+(@Entry+46, 27666), -- Golden Fish Sticks (+44 Healing, +20 Spirit)
+(@Entry+46, 27657), -- Blackened Basilisk (+23 Spell Damage, +20 Spirit)
+(@Entry+46, 27665), -- Poached Bluefish (+23 Spell Damage, +20 Spirit)
+(@Entry+46, 27655), -- Ravager Dog (+40 Attack Power, +20 Spirit)
+(@Entry+46, 27664), -- Grilled Mudfish (+20 Agility, +20 Spirit)
+(@Entry+46, 27658), -- Roasted Clefthoof (+20 Strength, +20 Spirit)
+(@Entry+46, 27663), -- Blackened Sporefish (+8 Mana per 5 sec, +20 Stamina)
+(@Entry+46, 33825), -- Skullfish Soup (+20 Spell Critical Strike Rating, +20 Spirit)
+-- Food: Wrath of the Lich King
+(@Entry+47, 34748), -- Mammoth Meal
+(@Entry+47, 34749), -- Shoveltusk Steak
+(@Entry+47, 34750), -- Worm Delight
+(@Entry+47, 34751), -- Roasted Worg
+(@Entry+47, 34752), -- Rhino Dogs
+(@Entry+47, 34754), -- Mega Mammoth Meal
+(@Entry+47, 34755), -- Tender Shoveltusk Steak
+(@Entry+47, 34756), -- Spiced Worm Burger
+(@Entry+47, 34757), -- Very Burnt Worg
+(@Entry+47, 34758), -- Mighty Rhino Dogs
+(@Entry+47, 34762), -- Grilled Sculpin
+(@Entry+47, 34763), -- Smoked Salmon
+(@Entry+47, 34764), -- Poached Nettlefish
+(@Entry+47, 34765), -- Pickled Fangtooth
+(@Entry+47, 34766), -- Poached Northern Sculpin
+(@Entry+47, 34767), -- Firecracker Salmon
+(@Entry+47, 34768), -- Spicy Blue Nettlefish
+(@Entry+47, 34769), -- Imperial Manta Steak
+(@Entry+47, 42942), -- Baked Manta Ray
+(@Entry+47, 42993), -- Spicy Fried Herring
+(@Entry+47, 42994), -- Rhinolicious Wormsteak
+(@Entry+47, 42995), -- Hearty Rhino
+(@Entry+47, 42996), -- Snapper Extreme
+(@Entry+47, 42998), -- Cuttlesteak
+(@Entry+47, 42999), -- Blackened Dragonfin
+(@Entry+47, 43000), -- Dragonfin Filet
+(@Entry+47, 43268), -- Dalaran Clam Chowder
+(@Entry+47, 44953), -- Worg Tartare
 -- Enchants
 -- Weapons
 (@Entry+34, 18283), -- Biznicks 247x128 Accurascope

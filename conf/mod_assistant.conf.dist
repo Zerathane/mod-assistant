@@ -11,13 +11,15 @@
 # Containers include the lowest amount of slot bags by default
 #
 
-Assistant.Heirlooms.Enabled  = 1
-Assistant.Glyphs.Enabled     = 1
-Assistant.Gems.Enabled       = 1
-Assistant.Elixirs.Enabled    = 1
-Assistant.Food.Enabled       = 1
-Assistant.Enchants.Enabled   = 1
-Assistant.Containers.Enabled = 1
+Assistant.Heirlooms.Enabled               = 1
+Assistant.Glyphs.Enabled                  = 1
+Assistant.Gems.Enabled                    = 1
+Assistant.Elixirs.Enabled                 = 1
+Assistant.Food.Vanilla.Enabled            = 1
+Assistant.Food.BurningCrusade.Enabled     = 1
+Assistant.Food.WrathOfTheLichKing.Enabled = 1
+Assistant.Enchants.Enabled                = 1
+Assistant.Containers.Enabled              = 1
 
 #################################
 
