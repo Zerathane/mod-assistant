@@ -1,3 +1,5 @@
+Forked from Noisiver's Mod Assistant - https://github.com/noisiver/mod-assistant, all credit goes to him for creating this module.
+
 # Features
 The assistant is a npc spawned in the world and lets a player obtain heirlooms, glyphs, gems, elixirs, food that gives buffs, and utilities like faction change and race change. The player can also spend gold in order to increase their profession skills. It will be set to the current max value each time the feature is used. They can also unlock flight paths and reset heroic dungeons and raids.
 
@@ -7,7 +9,4 @@ All the features listed above are enabled, or disabled, through the configuratio
 
 The entry of the assistant is **9000000**.
 
-# Pull Requests
-I don't accept pull requests. There are a few exceptions listed below, and all of them have to be true for me to consider merging a pull request.
-- It's something I *really* want or that I think should be included with the module.
-- It matches my code style.
+This fork intends to add all major consumables and enchants to the assistant, separated by expansion.
